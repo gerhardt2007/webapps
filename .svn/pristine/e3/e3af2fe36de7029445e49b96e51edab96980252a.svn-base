@@ -1,0 +1,15 @@
+<%-- <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%> --%>
+<h1>The Hipstermaid Promise</h1>
+<p class='subhead'>We believe the cleaning industry is ripe for change. The typical experience with a maid service involves phone calls, a house visit to get a quote and a volley of texts and emails to schedule the actual cleaning. That is a lot of time wasted, when you could be building hipster cred by discovering new indie bands with names like Angry Salad or drinking coffee farmed from civets.</p>
+<p class='subhead'>Here at Hipstermaid, we think the experience of getting your house cleaned should feel more like going to your favorite spa -- easy, rejuvenating and something that brings a smile to your face. Scheduling your cleaning is simple. Just tell us your home size and address, pick a time that works for you, enter your payment details, and you are done! We even take care of the tip for you, based on the rating you give our cleaners, so there is no need to leave cash on your kitchen counter. And if it turns out you are not 100% satisfied, we will come back and clean your home again for free. After all, our mission is to get your place *five star hotel* clean, every time. You know, in a boutique, hipster five star hotel kind of way.</p>
+<h2>Meet the Team</h2>
+<div class='person'>
+<img alt="Cathy" class="photo" src="http://farm4.static.flickr.com/3213/2464885290_208ca5afa7_m.jpg" />
+<div class='name'>Cathy Tang, CEO</div>
+<div class='profile'>Cathy grew up in China and New York and spent the last five years at Google, where she marketed awesome products like Google Maps, Chrome, AdWords and most recently Google+. She used to be a slob, until she watched an episode of Hoarders and realized sleeping next to her 100-piece tamagotchi collection was problematic.  Now reformed, Cathy can often be found obsessively wiping her computer monitor, hiking through the deep forests of Marin, or using a laser pointer on her two newly adopted cats, Jelly and Mochi.</div>
+</div>
+<div class='person'>
+<img alt="Jack" class="photo" src="http://farm3.static.flickr.com/2305/2464064429_2310ab60b2_m.jpg" />
+<div class='name'>Jack Hoge, CTO</div>
+<div class='profile'>Jack is a native of Tampa, Florida but likes to pretend he was born in San Francisco. He is an entrepreneur at heart and founded his first business, a boutique web design/development agency, shortly after graduating from college. In his spare time, he often holes up at Red Rock Cafe reading the latest on Ruby, web design and the deeper meaning behind Gangnam style. When he is not being ironic and awesome, Jack is a slob (still) and likes to watch Storage Wars late at night.</div>
+</div>

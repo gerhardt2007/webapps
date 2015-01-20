@@ -1,0 +1,113 @@
+$(function() {
+    //init
+    $(".basket").find("ul").append('<li data-id="0">'
+        + '<span class="name" data-id="2">1 bedroom</span>'
+        + '<input class="count" value="89" type="text">');
+    $(".basket").find("ul").append('<li data-id="1">'
+        + '<span class="name" data-id="1">1 bathroom</span>'
+        + '<input class="count" value="20" type="text">');
+    recalcTotal();
+
+    $( "#catalog" ).accordion({
+        activate: function(event, ui) {
+            //var activeIndex = $("#catalog").accordion("option", "active");
+            //console.log(activeIndex);
+        }
+    });
+
+   // var refreshVal = 1;
+
+    $("#selectable1, #selectable2").selectable({
+         stop: function(event, ui) {
+
+            $(event.target).children('.ui-selected').not(':first').removeClass('ui-selected');
+
+                var basket = $(".basket"),
+                    itemId = basket.find("ul li[data-id='" + $("#catalog").accordion("option", "active") + "']");
+
+                if (itemId.html() != null) {
+                    if (itemId.find("span").attr("data-id")===$(event.target).children('.ui-selected').attr("data-id")) {
+                        itemId.remove();
+                        $(event.target).children('.ui-selected').removeClass('ui-selected');
+                    } else {
+                        itemId.find("span").attr("data-id",$(event.target).children('.ui-selected').attr("data-id"));
+                        itemId.find("span").html($(event.target).children('.ui-selected').html());
+                        itemId.find("input").val($(event.target).children('.ui-selected').val());
+                    }
+                }
+                else {
+                    basket.find("ul").append('<li data-id="' +  $("#catalog").accordion("option", "active") + '">'
+                        + '<span class="name" data-id="'+$(event.target).children('.ui-selected').attr("data-id")+'">'
+                        + $(event.target).children('.ui-selected').html()
+                        + '</span>'
+                        + '<input class="count" value="'+$(event.target).children('.ui-selected').val()+'" type="text">');
+                }
+             recalcTotal();
+    	 }
+
+    		            });
+
+    $('#selectable3 li').click(function(){
+        if($(this).hasClass('ui-selected')){
+            $(this).removeClass('ui-selected');
+            $(".basket").find("ul span[data-id='" + $(this).attr("data-id") + "']").parent("li").remove();
+        }else{
+            $(this).addClass('ui-selected');
+            $(".basket").find("ul").append('<li data-id="' +  $("#catalog").accordion("option", "active") + '">'
+                + '<span class="name" data-id="'+$(this).attr("data-id")+'">'
+                + $(this).html()
+                + '</span>'
+                + '<input class="count" value="'+$(this).val()+'" type="text">');
+        }
+        recalcTotal();
+    });
+
+
+    function recalcTotal () {
+        $(".basket").find(".total").html('$'+$("[class^=count]").sum());
+    }
+    
+    $('.carousel').carousel({
+    	pause: true,
+    	interval: false
+    	});
+    $('#radio_button').click(function(){
+    	alert("referf");
+    });
+
+    
+    
+    
+//---------------------    
+    
+/*	$.ajax({
+        type: "GET",
+        url: 'book/calendar',
+	    contentType: "application/json",            
+    success: function(response){        	
+    	 allExistingRoles=JSON.parse(response);
+		  for(var i=0;i<allExistingRoles.length;i++){
+			  $('#rolesList').append("<option value="+allExistingRoles[i].name+">"+allExistingRoles[i].name+"</option>");
+		  }		
+		  
+        } //success
+   });*/
+	
+    $.getJSON('book/calendar', function(data) {
+    	  
+    	/*var items = [];    	 
+    	  $.each(data.entities.q142.labels.fr, function(key, val) {
+    	    items.push('<li id="' + key + '1">Test 1: ' + val + '</li>');
+    	  });    	 
+    	  $('<ul/>', {'class': 'my-new-list', html: items.join('')}).appendTo('.carousel-inner');
+    	  */
+    	var items = [];
+    	$.each(data, function(key, val) {
+    	    items.push('<li>'+key+'...'+val+'</li>');
+    	  });
+    	 //$('<ul/>', {'class': 'my-new-list', html: items.join('')}).appendTo('.carousel-inner');
+    	
+    	
+    	});  
+    
+});
